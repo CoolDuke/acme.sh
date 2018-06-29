@@ -22,7 +22,7 @@ apache_deploy() {
   _debug _cca "$_cca"
   _debug _cfullchain "$_cfullchain"
 
-  _ssl_path="/etc/acme.sh/apache2"
+  _ssl_path="/etc/acme.sh/apache"
   if ! mkdir -p "$_ssl_path"; then
     _err "Can not create folder:$_ssl_path"
     return 1
