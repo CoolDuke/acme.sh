@@ -55,6 +55,13 @@ apache_deploy() {
   _info "Run reload: $_reload"
   if eval "$_reload"; then
     _info "Reload success!"
+
+    if [ "$DEPLOY_APACHE_RELOAD" ]; then
+      _savedomainconf DEPLOY_APACHE_RELOAD "$DEPLOY_APACHE_RELOAD"
+    else
+      _cleardomainconf DEPLOY_APACHE_RELOAD
+    fi
+
     return 0
   else
     _err "Reload error"
